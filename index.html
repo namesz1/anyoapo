@@ -28,9 +28,14 @@
 				center: {lat: 48.163195, lng: 21.199560}
 			});
 			
+			navigator.options = {
+				enableHighAccuracy: true,
+				maximumAge: 30000,
+				timeout: 27000
+			};
+			
 			// Get geolocation
 			if( navigator.geolocation) {
-				positionOptions.enableHighAccuracy(true);
 				navigator.geolocation.watchPosition(set_my_position);
 			}
 			else {
@@ -58,7 +63,6 @@
 		}
 		
 		function set_my_position(position){
-			positionOptions.enableHighAccuracy(true);
 			old_position.setMap(null);
 			var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			var marker = new google.maps.Marker({
