@@ -13,10 +13,10 @@
 		
 		var old_position;
     	var tolerance = 10;
-		var data = `48.16668266811453 21.20282849800901 box.png
-					48.16617957450376 21.201483769618648 box.png
-					48.16572448143964 21.199843298682513 box.png
-					48.16590552944546 21.199303963331094 box.png
+		var data = `48.16324253664344 21.19980660549343 gun.png
+					48.162468920346015 21.20294286861571 gun.png
+					48.16600504633428 21.201060510674875 gun.png
+					48.16888519983746 21.200757197764766 target.png
 					`;
 		
 		var markers = data.split("\n");
@@ -62,26 +62,16 @@
 			var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			var marker = new google.maps.Marker({
 			  position: pos,
-			  icon: "santa.png",
+			  icon: "soldier.png",
 			  map: zombie_map
 			});
 			old_position = marker;
-			
 			for(var i=0; i < all_markers.length; i++){
-			var distance = google.maps.geometry.spherical.computeDistanceBetween(pos, all_markers[i].getPosition());
+				var distance = google.maps.geometry.spherical.computeDistanceBetween(pos, all_markers[i].getPosition());
 				if( distance < tolerance ){
 					var what_is_it = all_markers[i].getPosition();
-					if (what_is_it = "48.16668266811453 21.20282849800901"){
-						alert("Ez egy ismerős ház.");
-					}
-					else if (what_is_it = "48.16617957450376 21.201483769618648"){
-						alert("Felértél az utca tetejére, ettől feljebb már nem megyünk.. :P");
-					}
-					else if (what_is_it = "48.16572448143964 21.199843298682513"){
+					if (what_is_it ="48.16600504633428, 21.201060510674875"){
 						alert("Réka pince\n\n Ez egy nagyon komoly hely!");
-					}
-					else if (what_is_it = "48.16590552944546 21.199303963331094"){
-						alert("Na jó.. tényleg ez a max magasság!");
 					}
 				}
 			}
