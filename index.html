@@ -30,7 +30,7 @@
 			
 			// Get geolocation
 			if( navigator.geolocation) {
-				positionOptions.enableHighAccuracy = true;
+				positionOptions.enableHighAccuracy(true);
 				navigator.geolocation.watchPosition(set_my_position);
 			}
 			else {
@@ -58,7 +58,7 @@
 		}
 		
 		function set_my_position(position){
-			positionOptions.enableHighAccuracy = true;
+			positionOptions.enableHighAccuracy(true);
 			old_position.setMap(null);
 			var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			var marker = new google.maps.Marker({
