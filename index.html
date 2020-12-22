@@ -12,10 +12,11 @@
 		var zombie_map;
 		
 		var old_position;
-    	var tolerance = 10;
-		var data = `48.1662745 21.2034017 box.png
-					48.1670609 21.2033531 box.png
-					48.1673904 21.2040029 box.png
+    	var tolerance = 50;
+		var data = `48.165803, 21.203392 box.png
+					48.164791, 21.203209 box.png
+					48.164144, 21.203499 box.png
+					48.164021, 21.205489 box.png
 					`;
 		
 		var markers = data.split("\n");
@@ -78,10 +79,17 @@
 				if( distance < tolerance ){
 					var what_is_it = all_markers[i].getPosition();
 					
-					alert("Found the " + what_is_it );
-					
 					all_markers[i].setMap(null);
 					
+					if (what_is_it = "48.165803, 21.203392"){
+						aler("Itt laknak Misibáék")
+					} else if (what_is_it = "48.164791, 21.203209"){
+						aler("Koli kereszteződés")
+					} else if (what_is_it = "48.164144, 21.203499"){
+						aler("Sarok")
+					} else if (what_is_it = "48.164021, 21.205489"){
+						aler("Ez a gimi")
+					}
 				}
 				
 			}
