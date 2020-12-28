@@ -13,10 +13,10 @@
 		
 		var old_position;
     	var tolerance = 13;
-		var data = `48.16668266811453 21.20282849800901 box.png
-					48.16617957450376 21.201483769618648 box.png
-					48.16572448143964 21.199843298682513 box.png
-					48.16590552944546 21.199303963331094 box.png
+		var data = `48.16668266811453 21.20282849800901 haz.png
+					48.16617957450376 21.201483769618648 keri.png
+					48.16572448143964 21.199843298682513 pince.png
+					48.16590552944546 21.199303963331094 lepcso.png
 					`;
 		
 		var markers = data.split("\n");
@@ -29,13 +29,9 @@
 				center: {lat: 48.163195, lng: 21.199560}
 			});
 			
-			navigator.options = {
-				enableHighAccuracy: true
-			};
-			
 			// Get geolocation
 			if (navigator.geolocation) {
-				navigator.options;
+				enableHighAccuracy: true;
 				navigator.geolocation.watchPosition(set_my_position);
 			}
 			else {
@@ -63,6 +59,7 @@
 		}
 		
 		function set_my_position(position){
+			enableHighAccuracy: true;
 			old_position.setMap(null);
 			var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			var marker = new google.maps.Marker({
@@ -75,17 +72,17 @@
 				var distance = google.maps.geometry.spherical.computeDistanceBetween(pos, all_markers[i].getPosition());
 				
 				if( distance < tolerance ){
-					var what_is_it = all_markers[i].getPosition();
+					var what_is_it = all_markers[i].getIcon();
 					
 					all_markers[i].setMap(null);
 					
-					if (what_is_it = "48.16668266811453 21.20282849800901"){
+					if (what_is_it = "haz.png"){
 						alert("Itt laknak emberek")
-					} else if (what_is_it = "48.16617957450376 21.201483769618648"){
+					} else if (what_is_it = "keri.png"){
 						alert("Keri")
-					} else if (what_is_it = "48.16572448143964 21.199843298682513"){
+					} else if (what_is_it = "pince.png"){
 						alert("Pince..")
-					} else if (what_is_it = "48.16590552944546 21.199303963331094"){
+					} else if (what_is_it = "lepcso.png"){
 						alert("Ez a top")
 					}
 				}
