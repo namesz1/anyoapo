@@ -67,7 +67,6 @@
 		}
 		
 		function set_my_position(position){
-			enableHighAccuracy: true
 			old_position.setMap(null);
 			var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			var marker = new google.maps.Marker({
