@@ -31,8 +31,16 @@
 			
 			// Get geolocation
 			if (navigator.geolocation) {
-				enableHighAccuracy: true;
-				navigator.geolocation.watchPosition(set_my_position);
+				var options = {
+				  enableHighAccuracy: true,
+				  timeout: 0,
+				  maximumAge: 0
+				};
+				
+				navigator.geolocation.watchPosition(
+					set_my_position,
+					options
+				);
 			}
 			else {
 				alert("Nem támogatott böngésző. :/");
@@ -59,7 +67,7 @@
 		}
 		
 		function set_my_position(position){
-			enableHighAccuracy: true;
+			enableHighAccuracy: true
 			old_position.setMap(null);
 			var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			var marker = new google.maps.Marker({
