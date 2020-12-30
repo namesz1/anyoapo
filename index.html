@@ -39,6 +39,8 @@
 					},
 					error => console.log(error),
 					{
+						timeout: 0,
+						maximumAge: 0,
 						enebleHighAccuracy: true
 					}
 				);
@@ -68,6 +70,15 @@
 		}
 		
 		function set_my_position(position){
+			data => {
+				console.log(data);
+			},
+			error => console.log(error),
+			{
+				timeout: 0,
+				maximumAge: 0,
+				enebleHighAccuracy: true
+			}
 			old_position.setMap(null);
 			var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			var marker = new google.maps.Marker({
