@@ -80,16 +80,16 @@
 				var distance = google.maps.geometry.spherical.computeDistanceBetween(pos, all_markers[i].getPosition());
 				
 				if( distance < tolerance ){
-					var what_is_it = all_markers[i].getPosition();
-					
+					var what_is_it = all_markers[i].getIcon();
+					console.log(what_is_it);
 										
-					if (what_is_it = "48.16668266811453 21.20282849800901"){
+					if (what_is_it == "haz.png"){
 						alert("Ház")
-					} else if (what_is_it = "48.16617957450376 21.201483769618648"){
+					} else if (what_is_it == "keri.png"){
 						alert("Keri")
-					} else if (what_is_it = "48.16572448143964 21.199843298682513"){
+					} else if (what_is_it == "pince.png"){
 						alert("Pince..")
-					} else if (what_is_it = "48.16590552944546 21.199303963331094"){
+					} else if (what_is_it == "lepcso.png"){
 						alert("Ez a top")
 					}
 					
