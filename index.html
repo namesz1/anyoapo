@@ -43,6 +43,11 @@
 					}
 				)
 				*/
+				navigator.geolocation.getCurrentPosition(function (position) {
+					initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+					map.setCenter(initialLocation);
+				});
+				
 				navigator.geolocation.watchPosition(
 					set_my_position,
 					errorCallback_highAccuracy,
